@@ -1,0 +1,195 @@
+/* Header Top Strip */
+.header-top-strip {
+  border-bottom: 1px solid var(--color-3b4149);
+  background-color: var(--color-131921);
+}
+
+/* Header Upper */
+.header-upper {
+  border-bottom: 1px solid var(--color-3b4149);
+  background-color: var(--color-131921);
+}
+
+.header-upper .input-group-text {
+  background-color: var(--color-febd69);
+}
+
+.header-upper .header-upper-links img {
+  width: 35px;
+  height: 35px;
+}
+
+.list-group {
+  z-index: 9999;
+  background-color: white;
+  border: 1px solid #ddd;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 550px;
+}
+
+.list-group-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.list-group-item p {
+  margin-bottom: 5px;
+}
+
+.list-group-item .text-muted {
+  font-size: 0.875rem;
+}
+
+.list-group-item .text-danger {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.list-group .rating-section {
+  display: flex;
+  align-items: center;
+}
+
+.list-group .review-count {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Header Bottom */
+.header-bottom {
+  background-color: var(--color-232f3e);
+}
+
+.header-bottom .menu-links a,
+.header-bottom .dropdown button {
+  color: white;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: 0.3;
+  text-transform: uppercase;
+}
+
+.dropdown {
+  border-right: 2px solid var(--color-3b4149);
+}
+
+.header-bottom .dropdown button:focus {
+  box-shadow: none;
+}
+
+.header-bottom .dropdown-menu {
+  background-color: var(--color-131921);
+  width: 100%;
+  transform: translate3d(0px, 57px, 0px) !important;
+}
+
+.header-bottom .dropdown-item {
+  padding: 10px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid var(--color-3b4149);
+}
+
+/* Hover States */
+.phone-links a:hover {
+  color: brown !important;
+}
+
+.header-upper-links a:hover,
+.menu-links a:hover {
+  color: var(--color-febd69) !important;
+}
+
+/* Off-Canvas Menu */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #343a40;
+  transition: left 0.3s ease;
+  z-index: 999;
+  padding: 20px;
+}
+
+.offcanvas-menu.open {
+  left: 0;
+}
+
+.offcanvas-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.offcanvas-link {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.offcanvas-link img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+/* Off-Canvas Close Menu */
+.close-menu {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.offcanvas-link:hover {
+  color: var(--color-febd69);
+}
+
+@media (max-width: 991.98px) {
+  .header-bottom .menu-bottom {
+    gap: 15px;
+  }
+
+  .header-bottom .menu-bottom a {
+    font-size: 13px;
+  }
+
+  .header-bottom .dropdown-toggle {
+    font-size: 13px;
+  }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .header-upper .input-group {
+    width: 100%;
+  }
+
+  .header-upper-links {
+    display: none;
+  }
+
+  .menu-toggle-button {
+    display: inline-block;
+  }
+
+  .header-bottom {
+    display: none;
+  }
+}

@@ -1,0 +1,83 @@
+/* Blog Card */
+.blog-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0000001a;
+  margin: 0 0 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-image {
+  transition: transform 0.3s ease;
+}
+
+.card-image:hover {
+  transform: scale(1.1);
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-content .title {
+  min-height: 44px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.blog-content .date {
+  font-size: 13px;
+  line-height: 24px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--color-bf4800);
+  padding: 0;
+}
+
+.blog-content h5 {
+  font-size: 18px;
+  color: var(--color-131921);
+}
+
+.blog-content .description {
+  min-height: 66px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 25px;
+  color: var(--color-777777);
+}
+
+/* Styling for the button */
+.blog-card .button {
+  background-color: #003a77;
+  color: white;
+  padding: 12px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.blog-card .button:hover {
+  background-color: #006de2;
+  color: #fff;
+  text-decoration: none;
+}

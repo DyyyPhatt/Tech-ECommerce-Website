@@ -1,0 +1,84 @@
+/* Carousel Image */
+.carousel img {
+  height: 600px;
+  object-fit: cover;
+}
+
+/* About Section Styles */
+.about-intro {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  padding: 50px 0; /* Thêm padding cho intro */
+}
+
+.about-info {
+  max-width: 600px;
+}
+
+.about-info h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about-info p {
+  font-size: 16px; /* Điều chỉnh kích thước chữ */
+  line-height: 1.8;
+  color: #555;
+}
+
+/* About Services Section */
+.about-services h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* About Creators Section */
+.about-creators h2 {
+  font-size: 30px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.creator {
+  margin-bottom: 40px;
+}
+
+.about-creators .creator-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-creators .row {
+  margin-top: 30px;
+}
+
+.about-creators h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.about-creators p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .about-creators .row {
+    flex-direction: column;
+    text-align: center; /* Canh giữa cho thiết bị nhỏ */
+  }
+
+  .about-creators .creator-img {
+    margin-bottom: 20px;
+  }
+}

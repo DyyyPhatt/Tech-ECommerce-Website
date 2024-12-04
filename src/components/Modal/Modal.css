@@ -1,0 +1,46 @@
+.add-to-cart-modal .modal-header {
+  background-color: #28a745;
+  color: white;
+}
+
+.add-to-cart-modal .modal-title {
+  display: flex;
+  align-items: center;
+}
+
+.add-to-cart-modal .modal-title .icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.add-to-cart-modal .modal-body {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #333;
+}
+
+.confirm-delete-modal .modal-header {
+  background-color: #dc3545;
+  color: white;
+}
+
+.confirm-delete-modal .modal-title {
+  display: flex;
+  align-items: center;
+}
+
+.confirm-delete-modal .modal-title .icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.confirm-delete-modal .modal-body {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #333;
+}
+
+.add-to-cart-modal .modal-footer,
+.confirm-delete-modal .modal-footer {
+  gap: 10px;
+}
