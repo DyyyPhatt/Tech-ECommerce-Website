@@ -86,6 +86,8 @@ const Store = () => {
 
   // Fetch brands, categories, conditions, and tags
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const loadData = async () => {
       setLoading(true);
       try {

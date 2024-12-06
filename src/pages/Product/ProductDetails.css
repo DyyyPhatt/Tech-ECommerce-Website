@@ -172,7 +172,7 @@
   width: 40px;
   height: 40px;
   font-size: 18px;
-  background-color: #ddd;
+  background-color: #00336a;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -185,7 +185,7 @@
 }
 
 .product-details-container .quantity-button:hover:not(:disabled) {
-  background-color: #ccc;
+  background-color: #002c5b;
 }
 
 .product-details-container .quantity-input {

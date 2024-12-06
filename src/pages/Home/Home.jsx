@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
+import { BiChevronRight } from "react-icons/bi";
 import { fetchCategories } from "../../api/categoryApi";
 import { fetchBrands, fetchBrandById } from "../../api/brandApi";
 import { fetchProductConditionById } from "../../api/productConditionApi";
@@ -53,6 +54,8 @@ const Home = () => {
   const [discountProducts, setDiscountProducts] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const fetchData = async () => {
       try {
         setCategories(await fetchCategories());
@@ -87,8 +90,8 @@ const Home = () => {
         );
 
         setProducts(productsWithDetails.slice(0, 8));
-        setSpecialProducts(specialProductsWithDetails);
-        setDiscountProducts(discountedProductsWithDetails);
+        setSpecialProducts(specialProductsWithDetails.slice(0, 6));
+        setDiscountProducts(discountedProductsWithDetails.slice(0, 8));
       } catch (error) {
         console.error("Error fetching data:", error);
         toast.error("Unable to fetch data. Please try again!", {
@@ -190,7 +193,12 @@ const Home = () => {
         <div data-aos="fade-up" className="container">
           <div className="row">
             <div className="col-12">
-              <div className="section-heading">Sản Phẩm Giảm Giá</div>
+              <div className="col-12 d-flex justify-content-between align-items-center">
+                <div className="section-heading">Sản Phẩm Giảm Giá</div>
+                <Link to="/products?type=discounted" className="view-all-link">
+                  Xem tất cả <BiChevronRight />
+                </Link>
+              </div>
               <div className="row mt-3">
                 {discountProducts.map((product) => (
                   <ProductCard
@@ -238,7 +246,12 @@ const Home = () => {
         <div data-aos="fade-up" className="container">
           <div className="row">
             <div className="col-12">
-              <div className="section-heading">Sản Phẩm Mới Nhất</div>
+              <div className="col-12 d-flex justify-content-between align-items-center">
+                <div className="section-heading">Sản Phẩm Mới Nhất</div>
+                <Link to="/products?type=newest" className="view-all-link">
+                  Xem tất cả <BiChevronRight />
+                </Link>
+              </div>
               <div className="row mt-3">
                 {products.map((product) => (
                   <ProductCard
@@ -284,7 +297,12 @@ const Home = () => {
         <div data-aos="fade-up" className="container">
           <div className="row">
             <div className="col-12">
-              <div className="section-heading">Sản Phẩm Đánh Giá Cao</div>
+              <div className="col-12 d-flex justify-content-between align-items-center">
+                <div className="section-heading">Sản Phẩm Đánh Giá Cao</div>
+                <Link to="/products?type=special" className="view-all-link">
+                  Xem tất cả <BiChevronRight />
+                </Link>
+              </div>
               <div className="row mt-3">
                 {specialProducts.map((specialProduct) => (
                   <SpecialProduct
@@ -305,8 +323,11 @@ const Home = () => {
       <section className="blog-wrapper home-wrapper-2 py-5">
         <div data-aos="fade-up" className="container">
           <div className="row">
-            <div className="col-12">
+            <div className="col-12 d-flex justify-content-between align-items-center">
               <div className="section-heading">Tin Tức Mới Nhất</div>
+              <Link to="/blogs" className="view-all-link">
+                Xem tất cả <BiChevronRight />
+              </Link>
             </div>
             <div className="row mt-3">
               {latestBlogs.map((blog) => (

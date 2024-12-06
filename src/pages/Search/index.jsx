@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const SearchResults = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 4;
+  const productsPerPage = 8;
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [col, setCol] = useState("col-lg-3 col-md-6 col-sm-6 col-12");
@@ -19,7 +19,9 @@ const SearchResults = () => {
   const query = new URLSearchParams(location.search).get("q");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setLoading(true);
+
     const fetchSearchResults = async () => {
       try {
         setLoading(true);

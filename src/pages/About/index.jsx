@@ -23,6 +23,7 @@ const About = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     loadAboutData();
   }, []);
 

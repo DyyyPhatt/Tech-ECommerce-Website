@@ -28,10 +28,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import EditProfile from "./pages/Other/EditProfile";
 import OrderHistory from "./pages/Other/OrderHistory";
+import ProductList from "./pages/Other/ProductList";
 import NotFound from "./components/Other/404Page";
 import { FavoritesProvider } from "./components/Context/FavoritesContext";
 import { CartProvider } from "./components/Context/CartContext";
-import ScrollToTop from "./components/Other/ScrollToTop";
 
 function App() {
   useEffect(() => {
@@ -75,6 +75,7 @@ function App() {
                 <Route path="order-history" element={<OrderHistory />} />
                 <Route path="*" element={<NotFound />} />
                 <Route path="/search" element={<SearchResults />} />
+                <Route path="/products" element={<ProductList />} />
               </Route>
             </Routes>
           </FavoritesProvider>

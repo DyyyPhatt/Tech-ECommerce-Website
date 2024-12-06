@@ -21,6 +21,8 @@ const Contact = () => {
   const [hasShownError, setHasShownError] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     loadContactData();
   }, [hasShownError]);
 

@@ -46,6 +46,8 @@ const Cart = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const fetchTotalPrice = async () => {
       const price = await calculateTotalPrice();
       setTotalPrice(price);

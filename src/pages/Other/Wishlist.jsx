@@ -14,6 +14,8 @@ const Wishlist = () => {
   const [col, setCol] = useState("col-lg-3 col-md-6 col-sm-6 col-12");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     setLoading(false);
   }, []);
 

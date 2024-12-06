@@ -66,6 +66,7 @@ const EditProfile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const token = localStorage.getItem("userToken");
 
     if (token) {

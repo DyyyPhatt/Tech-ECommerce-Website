@@ -97,6 +97,8 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const loadProductDetails = async () => {
       if (!productName) {
         console.warn("Tên sản phẩm trống. Không thể tải chi tiết sản phẩm.");
@@ -371,7 +373,16 @@ const ProductDetails = () => {
                     type="number"
                     className="quantity-input"
                     value={quantity}
-                    readOnly
+                    onChange={(e) => {
+                      const inputValue = parseInt(e.target.value, 10);
+                      if (!isNaN(inputValue) && inputValue > 0) {
+                        const maxQuantity =
+                          product.colors.find(
+                            (color) => color.name === selectedColor
+                          )?.quantity || 0;
+                        setQuantity(Math.min(inputValue, maxQuantity));
+                      }
+                    }}
                   />
                   <button
                     className="quantity-button"

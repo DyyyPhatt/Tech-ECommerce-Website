@@ -14,6 +14,8 @@ const PolicyPage = ({ policyTitle, breadcrumbTitle }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const fetchPolicy = async () => {
       try {
         const response = await axios.get(

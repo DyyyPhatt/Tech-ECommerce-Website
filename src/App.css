@@ -89,7 +89,3 @@ a {
   align-items: center;
   margin: 30px 0;
 }
-
-input[readonly] {
-  cursor: not-allowed;
-}

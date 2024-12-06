@@ -27,6 +27,7 @@ const BlogDetails = () => {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     loadBlogDetails();
   }, [title, navigate]);
 

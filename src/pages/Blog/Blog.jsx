@@ -23,6 +23,8 @@ const Blog = () => {
   const blogsPerPage = 8;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const loadCategories = async () => {
       try {
         const data = await fetchCategories();

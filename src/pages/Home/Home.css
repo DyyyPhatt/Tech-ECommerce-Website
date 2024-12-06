@@ -130,6 +130,27 @@
   max-width: 350px;
 }
 
+.view-all-link {
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border: 1px solid #007bff;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.view-all-link:hover {
+  color: #fff;
+  background-color: #007bff;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .scroll-to-top {
   position: fixed;
   bottom: 25px;

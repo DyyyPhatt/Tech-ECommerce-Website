@@ -176,8 +176,20 @@ const CartItem = ({ product }) => {
           <input
             type="text"
             value={quantity}
-            readOnly
             className="quantity-input"
+            onChange={(e) => {
+              const inputValue = parseInt(e.target.value, 10);
+              if (!isNaN(inputValue) && inputValue > 0) {
+                setQuantity(Math.min(inputValue, maxQuantity));
+              } else if (e.target.value === "") {
+                setQuantity("");
+              }
+            }}
+            onBlur={(e) => {
+              if (e.target.value === "" || parseInt(e.target.value, 10) < 1) {
+                setQuantity(1);
+              }
+            }}
           />
           <button
             onClick={handleIncrement}

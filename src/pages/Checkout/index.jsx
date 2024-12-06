@@ -89,6 +89,8 @@ const CheckoutPage = () => {
   }, [formData.districtCode]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const fetchCoupons = async () => {
       try {
         const response = await axios.get(

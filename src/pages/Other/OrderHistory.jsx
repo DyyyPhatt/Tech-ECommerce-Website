@@ -44,6 +44,8 @@ const OrderHistoryPage = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const fetchOrdersWithProductDetails = async () => {
       try {
         const response = await axios.get(
@@ -213,9 +215,9 @@ const OrderHistoryPage = () => {
               className="form-select w-auto ms-2"
             >
               <option value="all">Tất cả Trạng Thái</option>
-              <option value="Processing">Đang xử lý</option>
-              <option value="Shipped">Đã gửi</option>
-              <option value="Delivered">Đã giao</option>
+              <option value="Đang xử lý">Đang xử lý</option>
+              <option value="Đang vận chuyển">Đang vận chuyển</option>
+              <option value="Đã giao hàng">Đã giao hàng</option>
             </select>
           </div>
 
@@ -353,9 +355,15 @@ const OrderHistoryPage = () => {
                             {formatCurrency(order.shippingCost)}
                           </p>
                           {order.coupon && (
-                            <p>
-                              <strong>Mã giảm giá:</strong> {order.coupon}
-                            </p>
+                            <>
+                              <p>
+                                <strong>Mã giảm giá:</strong> {order.coupon}
+                              </p>
+                              <p>
+                                <strong>Số tiền giảm giá:</strong>{" "}
+                                {formatCurrency(order.couponDiscount)}
+                              </p>
+                            </>
                           )}
                           <p>
                             <strong>Tổng tiền:</strong>{" "}
@@ -472,11 +480,11 @@ const OrderHistoryPage = () => {
 
 const getStatusColor = (status) => {
   switch (status) {
-    case "Processing":
+    case "Đang xử lý":
       return "bg-warning text-dark";
-    case "Shipped":
+    case "Đang vận chuyển":
       return "bg-info text-white";
-    case "Delivered":
+    case "Đã giao hàng":
       return "bg-success text-white";
     default:
       return "bg-secondary text-white";
