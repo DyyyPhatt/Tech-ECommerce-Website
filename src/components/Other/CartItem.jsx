@@ -30,7 +30,9 @@ const CartItem = ({ product }) => {
           );
 
           const cartProduct = cartResponse.data.items.find(
-            (item) => item.product === product.id
+            (item) =>
+              item.product === product.id &&
+              item.color === product.selectedColor
           );
 
           if (cartProduct) {
@@ -40,7 +42,11 @@ const CartItem = ({ product }) => {
         } else {
           const localProduct = JSON.parse(
             localStorage.getItem("cartItems")
-          )?.find((item) => item.id === product.id);
+          )?.find(
+            (item) =>
+              item.id === product.id &&
+              item.selectedColor === product.selectedColor
+          );
 
           if (localProduct) {
             setQuantity(localProduct.quantity);
@@ -48,7 +54,6 @@ const CartItem = ({ product }) => {
           }
         }
 
-        // Fetch product details
         const response = await axios.get(
           `http://localhost:8081/api/products/${product.id}`
         );
@@ -70,7 +75,8 @@ const CartItem = ({ product }) => {
           conditionName: condition.conditionName,
         });
       } catch (error) {
-        console.error("Không thể lấy thông tin sản phẩm:", error);
+        console.error("Không thể lấy thông tin sản phẩm theo màu sắc:", error);
+        toast.error("Sản phẩm hoặc màu sắc không hợp lệ.");
       }
     };
 
@@ -111,9 +117,21 @@ const CartItem = ({ product }) => {
       return;
     }
 
-    setSelectedColor(newColor);
-    updateColor(product.id, selectedColor, newColor, newMaxQuantity);
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existingProductIndex = cartItems.findIndex(
+      (item) => item.id === product.id && item.selectedColor === newColor
+    );
 
+    if (existingProductIndex !== -1) {
+      const existingProduct = cartItems[existingProductIndex];
+      const updatedQuantity = existingProduct.quantity + quantity;
+      updateQuantity(product.id, newColor, updatedQuantity);
+      removeFromCart(product.id, selectedColor);
+    } else {
+      updateColor(product.id, selectedColor, newColor, newMaxQuantity);
+    }
+
+    setSelectedColor(newColor);
     const newQuantity = Math.min(quantity, newMaxQuantity);
     setQuantity(newQuantity);
   };
@@ -129,7 +147,10 @@ const CartItem = ({ product }) => {
 
   return (
     <>
-      <div className="cart-data py-4 justify-content-between d-flex align-items-center">
+      <div
+        className="cart-data py-4 justify-content-between d-flex align-items-center"
+        key={`${product.id}-${product.selectedColor}`}
+      >
         <div className="cart-col-1 d-flex align-items-center">
           <div>
             {productDetails && (
