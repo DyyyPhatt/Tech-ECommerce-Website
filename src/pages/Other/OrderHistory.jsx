@@ -288,7 +288,7 @@ const OrderHistoryPage = () => {
                                   Số lượng: {item.quantity}
                                 </p>
                                 <p>Giá: {formatCurrency(item.priceTotal)}</p>
-                                {order.status === "Delivered" &&
+                                {order.status === "Đã giao hàng" &&
                                   !item.hasReviewed && (
                                     <button
                                       className="btn btn-primary btn-sm mt-2"
@@ -299,7 +299,7 @@ const OrderHistoryPage = () => {
                                       Đánh giá sản phẩm
                                     </button>
                                   )}
-                                {order.status === "Delivered" &&
+                                {order.status === "Đã giao hàng" &&
                                   item.hasReviewed && (
                                     <button
                                       className="btn btn-secondary btn-sm mt-2"

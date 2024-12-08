@@ -145,13 +145,21 @@ const Store = () => {
   };
 
   const handleMinPriceChange = (e) => {
-    const value = e.target ? e.target.value : "";
-    setMinPrice(value && !isNaN(value) ? parseFloat(value) : "");
+    const value = e.target ? parseFloat(e.target.value) : "";
+    if (value < 0) {
+      setMinPrice("");
+    } else {
+      setMinPrice(!isNaN(value) ? value : "");
+    }
   };
 
   const handleMaxPriceChange = (e) => {
-    const value = e.target ? e.target.value : "";
-    setMaxPrice(value && !isNaN(value) ? parseFloat(value) : "");
+    const value = e.target ? parseFloat(e.target.value) : "";
+    if (value < 0) {
+      setMaxPrice("");
+    } else {
+      setMaxPrice(!isNaN(value) ? value : "");
+    }
   };
 
   const handleCategoryChange = (categoryId) => {
